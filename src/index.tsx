@@ -41,6 +41,7 @@ function factory(tag: string) {
       const extractedClasses = extractClasses(strings, keys, props);
       const mergedClasses = `${className || ''} ${extractedClasses}`.trim();
 
+      // TODO: Accept a component in addtion of a tag
       return createElement(
         tag,
         { className: mergedClasses, ...props },
