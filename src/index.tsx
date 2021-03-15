@@ -52,10 +52,12 @@ function factory(tag: string) {
     return comp;
   };
 }
+
 type TTypeList = typeof tagList[number];
 type TClaxed = {
   [key in TTypeList]: any;
 };
+
 const claxed = tagList.reduce((acc, el) => ({ ...acc, [el]: factory(el) }), {});
 
 export default claxed as TClaxed;

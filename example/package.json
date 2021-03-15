@@ -8,6 +8,9 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.8",
+    "postcss-modules": "^4.0.0",
     "react-app-polyfill": "^1.0.0"
   },
   "alias": {
@@ -18,7 +21,7 @@
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
-    "parcel": "^1.12.3",
+    "parcel": "^2.0.0-nightly.623",
     "typescript": "^3.4.5"
   }
 }
