@@ -1,6 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+// import styled from 'styled-components';
 import claxed from '../.';
 import style from './style.module.css';
 
@@ -12,22 +13,26 @@ ${style.pippo}
   ${({ color, weight, fontSize = 'base', underline }) => `
     ${style[color]}
     ${underline && 'underline'}
-    text-${color}-300
+    text-green-300
     font-${weight}
     text-${fontSize}
   `}
   }}
 `;
 
+const ParagraphPurple = claxed(Paragraph)`
+  text-yellow-500
+`;
+
 const App = () => {
   return (
     <div>
-      <Paragraph color="red" weight="bold" underline>
+      {/* <Paragraph color="red" weight="bold" underline>
         Ciao Mondo
-      </Paragraph>
-      <Paragraph color="blue" weight="thin" fontSize="5xl">
+      </Paragraph> */}
+      <ParagraphPurple color="blue" weight="thin" fontSize="5xl">
         Ciao Mondo
-      </Paragraph>
+      </ParagraphPurple>
     </div>
   );
 };
