@@ -6,7 +6,7 @@ import {
 } from 'react';
 import is from '@sindresorhus/is';
 
-import { TTemplateExpressionList, TComp, TClaxed } from './types';
+import { TTemplateExpressionList, TComp, TClaxed, TFactory } from './types';
 
 import tagList from './tagList';
 
@@ -33,11 +33,10 @@ function extractClasses(
 }
 
 // TODO: Add theme feature
-function factory(tag: string | FunctionComponent<any> | ComponentClass<any>) {
-  return function parseTemplateString(
-    strings: TemplateStringsArray,
-    ...keys: TTemplateExpressionList
-  ) {
+function factory(
+  tag: string | FunctionComponent<any> | ComponentClass<any>
+): TFactory {
+  return function parseTemplateString(strings, ...keys) {
     const GeneratedComponent = ({
       children,
       className,
