@@ -1,7 +1,6 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import styled from 'styled-components';
 import claxed from '../.';
 import style from './style.module.css';
 
