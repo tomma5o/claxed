@@ -1,20 +1,9 @@
-import {
-  createElement,
-  cloneElement,
-  FunctionComponent,
-  ComponentClass,
-} from 'react';
-import is from '@sindresorhus/is';
-
-import { TTemplateExpressionList, TComp, TClaxed, TFactory } from './types';
+import { createElement, cloneElement } from 'react';
+import { is } from './utils';
 
 import tagList from './tagList';
 
-function extractClasses(
-  strings: TemplateStringsArray,
-  keys: TTemplateExpressionList,
-  props: any
-) {
+function extractClasses(strings, keys, props) {
   return strings.reduce((acc, el, i) => {
     const expression = keys[i];
 
@@ -33,17 +22,14 @@ function extractClasses(
 }
 
 // TODO: Add theme feature
-function factory(
-  tag: string | FunctionComponent<any> | ComponentClass<any>
-): TFactory {
+function factory(tag) {
   return function parseTemplateString(strings, ...keys) {
-    const GeneratedComponent = ({
-      children,
-      className,
-      ...props
-    }: TComp): JSX.Element | undefined => {
+    const GeneratedComponent = ({ children, className, ...props }) => {
       const extractedClasses = extractClasses(strings, keys, props);
-      const mergedClasses = `${className ?? ''} ${extractedClasses}`.trim();
+      const mergedClasses = `${className ?? ''} ${extractedClasses}`.replace(
+        /\s+/g,
+        ' '
+      );
 
       if (is.string(tag)) {
         return createElement(
@@ -54,24 +40,30 @@ function factory(
       }
 
       if (is.class_(tag)) {
-        const test = new tag({ ...props }).render();
+        const returnedComponent = new tag({ ...props }).render();
+        const { className, ...restProps } = returnedComponent?.props;
 
         return cloneElement(
-          //@ts-ignore
-          test,
-          //@ts-ignore
-          { className: `${extractedClasses} ${test?.props.className}` },
+          returnedComponent,
+          {
+            ...restProps,
+            className: `${extractedClasses} ${className}`,
+          },
           children
         );
       }
 
       if (is.function_(tag)) {
-        const test = tag({ ...props });
+        const returnedComponent = tag({ ...props });
+        const { className, ...restProps } = returnedComponent?.props;
 
+        console.log(returnedComponent);
         return cloneElement(
-          //@ts-ignore
-          test,
-          { className: `${extractedClasses} ${test?.props.className}` },
+          returnedComponent,
+          {
+            ...restProps,
+            className: `${extractedClasses} ${className}`,
+          },
           children
         );
       }
@@ -94,15 +86,8 @@ function factory(
   };
 }
 
-// let claxed = factory;
-
-tagList.forEach(el => {
-  //@ts-ignore
+tagList.forEach((el) => {
   factory[el] = factory(el);
 });
-// Object.setPrototypeOf(
-//   claxed,
-//   tagList.reduce((acc, el) => ({ ...acc, [el]: factory(el) }), {})
-// );
 
-export default factory as TClaxed & (() => any);
+export default factory;

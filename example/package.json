@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "rm -rf dist && rm -rf .parcel-cache && parcel index.html",
     "build": "parcel build index.html"
   },
   "dependencies": {
@@ -19,9 +19,6 @@
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
   },
   "devDependencies": {
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.8.4",
-    "parcel": "^2.0.0-nightly.623",
-    "typescript": "^3.4.5"
+    "parcel": "^2.0.0-beta.2"
   }
 }
