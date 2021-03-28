@@ -21,15 +21,16 @@ function extractClasses(strings, keys, props) {
   }, '');
 }
 
-// TODO: Add theme feature
 function factory(tag) {
   return function parseTemplateString(strings, ...keys) {
-    const GeneratedComponent = ({ children, className, ...props }) => {
+    const ClaxedComponent = ({ children, className, ...props }) => {
       const extractedClasses = extractClasses(strings, keys, props);
       const mergedClasses = `${className ?? ''} ${extractedClasses}`.replace(
         /\s+/g,
         ' '
       );
+
+      if (is.nullOrUndefined(tag)) return;
 
       if (is.string(tag)) {
         return createElement(
@@ -39,50 +40,38 @@ function factory(tag) {
         );
       }
 
-      if (is.class_(tag)) {
-        const returnedComponent = new tag({ ...props }).render();
-        const { className, ...restProps } = returnedComponent?.props;
-
-        return cloneElement(
-          returnedComponent,
-          {
-            ...restProps,
-            className: `${extractedClasses} ${className}`,
-          },
-          children
-        );
-      }
-
       if (is.function_(tag)) {
-        const returnedComponent = tag({ ...props });
+        let returnedComponent;
+        try {
+          returnedComponent = tag({ ...props });
+        } catch {
+          returnedComponent = new tag({ ...props }).render();
+        }
         const { className, ...restProps } = returnedComponent?.props;
 
-        console.log(returnedComponent);
         return cloneElement(
           returnedComponent,
           {
             ...restProps,
             className: `${extractedClasses} ${className}`,
           },
-          children
+          restProps.children || children
         );
       }
 
       return undefined;
     };
 
-    if (is.nullOrUndefined(tag)) return;
-
     /*
-        This Assigns a name to a generated functional component
+        This Assigns a name to the generated functional component
         for giving a dynamic name based on the `tag` 
       */
-    Object.defineProperty(GeneratedComponent, 'name', {
+    Object.defineProperty(ClaxedComponent, 'name', {
       value: typeof tag === 'string' ? tag : tag.displayName,
       writable: false,
     });
 
-    return GeneratedComponent;
+    return ClaxedComponent;
   };
 }
 

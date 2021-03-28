@@ -162,6 +162,13 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
+### FAQ
+
+<details>
+  <summary>Why if i override a class doesn't work sometimes?</summary>
+  <p>This happens because is not important where you declared a class, but is the ordering in declaration of the lib that gives it the priority</p>
+</details>
+
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
@@ -191,6 +198,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [issues-url]: https://github.com/tomma5o/claxed/issues
 [license-shield]: https://img.shields.io/github/license/tomma5o/claxed.svg?style=for-the-badge
 [license-url]: https://github.com/tomma5o/claxed/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/tomma5o
 [product-screenshot]: images/screenshot.png

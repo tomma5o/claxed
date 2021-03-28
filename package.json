@@ -10,7 +10,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
+    "start": "rollup -cw",
     "build": "rollup -c"
   },
   "peerDependencies": {
@@ -51,5 +51,7 @@
     "rollup-plugin-node-polyfills": "^0.2.1",
     "size-limit": "^4.9.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@sindresorhus/is": "^4.0.0"
+  }
 }

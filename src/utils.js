@@ -15,10 +15,6 @@ export const is = {
     return this.isOfType('function', value);
   },
 
-  class_(value) {
-    return this.function_(value) && value.toString().startsWith('class ');
-  },
-
   null_(value) {
     return value === null;
   },

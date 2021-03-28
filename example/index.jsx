@@ -1,4 +1,3 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import claxed from '../dist/claxed.cjs';
@@ -15,34 +14,37 @@ ${style.pippo}
     font-${weight}
     text-${fontSize}
     text-red-500
+    bg-blue-100
   `}
 `;
 
 const Paragraph = claxed(Paragrapho)`
-  text-blue-500
+  text-orange-500
 `;
 
-// class Title extends React.Component {
-//   render() {
-//     return <h1 {...this.props}>{this.props.label}</h1>;
-//   }
-// }
+class Title extends React.Component {
+  render() {
+    return <h1 {...this.props}>{this.props.label}</h1>;
+  }
+}
 
-// const StyledTitle = claxed(Title)`
-//   text-green-300
-// `;
+const StyledTitle = claxed(Title)`
+  text-green-300
+  p-5
+  m-2
+`;
 
-// const ReStyledTitle = claxed(StyledTitle)`
-//   bg-blue-500
-// `;
+const ReStyledTitle = claxed(StyledTitle)`
+  bg-blue-500
+`;
 
 const App = () => {
   return (
     <div>
-      {/* <ReStyledTitle label="Super Titolo" /> */}
+      <ReStyledTitle label="Super Titolo" />
 
       <Paragraph className="MiaClasse" color="red" weight="thin" fontSize="xl">
-        Ciao Paragrafo Rosso
+        Paragrafo Blu
       </Paragraph>
 
       {/* <ParagraphPurple color="blue" weight="thin" fontSize="5xl">

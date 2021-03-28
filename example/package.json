@@ -1,10 +1,10 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "start": "rm -rf dist && rm -rf .parcel-cache && parcel index.html",
+    "start": "parcel serve index.html",
     "build": "parcel build index.html"
   },
   "dependencies": {
@@ -19,6 +19,9 @@
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-beta.2"
+    "@babel/core": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "parcel-bundler": "1.12.3"
   }
 }
