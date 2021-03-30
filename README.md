@@ -36,9 +36,9 @@
 
 ## About The Project
 
-The idea is born with the usage of [tailwind CSS](https://tailwindcss.com/), classes framework is very helpful for giving us all the sizes, colors, spacings but sometimes can be messy if you type your classes inside the component and not to mention when you want a conditional class based on the props 💆‍♂️
+The idea is born while using [tailwind CSS](https://tailwindcss.com/) which is very helpful in giving us all the CSS classes for sizes, colors, spacings, but sometimes can be messy if you have a lot of classes to type inside the component. And not to mention when you want a conditional class based on a prop 💆‍♂️
 
-With this syntax heavily inspired by [styled-components](https://styled-components.com/), we can keep our DOM a little cleaner with some utility like props interpolation inside the template string.
+With claxed, heavily inspired by [styled-components](https://styled-components.com/), we can keep our DOM a little bit cleaner with the help of some utilities like props interpolation inside the template string.
 
 <!-- GETTING STARTED -->
 
@@ -58,14 +58,18 @@ yarn add claxed
 
 ## Usage
 
-If you know styled-components this should be familiar to you, is the same syntax but all that you type in a template string will go in the class of the component
+If you know styled-components this might be already familiar to you. The difference is that whatever you type within the template string will be printed in the html `class` attribute of the component. In the following example every row is a CSS class.
 
 ```js
 const Button = claxed.button`
   px-3
   py-2
 `;
+```
 
+Or you can conditionally add a class:
+
+```js
 const ButtonRed = claxed(Button)`
   ${({ border }) => border && 'border'}
   text-red-500
@@ -78,7 +82,7 @@ const App = () => (
   </div>
 );
 
-// Note: All the falsy value are stripped from the output
+// Note: All the falsy values are stripped from the output
 ```
 
 ## Roadmap
@@ -89,7 +93,7 @@ See the [open issues](https://github.com/tomma5o/claxed/issues) for a list of pr
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place form where to learn, be inspired, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -100,7 +104,7 @@ Contributions are what make the open source community such an amazing place to b
 ## FAQ
 
 <details>
-  <summary>Why if i override a class doesn't work sometimes?</summary>
+  <summary>Why sometimes it doesn't work if I override a class?</summary>
   <p>This happens because is not important where you declared a class, but is the ordering in declaration of the lib that gives it the priority</p>
 </details>
 
