@@ -36,7 +36,8 @@
 
 ## About The Project
 
-The idea is born while using [tailwind CSS](https://tailwindcss.com/) which is very helpful in giving us all the CSS classes for sizes, colors, spacings, but sometimes can be messy if you have a lot of classes to type inside the component. And not to mention when you want a conditional class based on a prop 💆‍♂️
+The idea is born while using [tailwind CSS](https://tailwindcss.com/), which is a very helpful classes framewrok that gives us all the CSS classes for sizes, colors, spacings.
+However it can be messy if you have a lot of classes to type inside the component. And not to mention when you want a conditional class based on a prop 💆‍♂️
 
 With claxed, heavily inspired by [styled-components](https://styled-components.com/), we can keep our DOM a little bit cleaner with the help of some utilities like props interpolation inside the template string.
 
@@ -58,18 +59,14 @@ yarn add claxed
 
 ## Usage
 
-If you know styled-components this might be already familiar to you. The difference is that whatever you type within the template string will be printed in the html `class` attribute of the component. In the following example every row is a CSS class.
+If you know styled-components this syntax might be already familiar to you. Whatever you type within the template string will be printed in the html `class` attribute of the component. In the following example every row is a CSS class.
 
 ```js
 const Button = claxed.button`
   px-3
   py-2
 `;
-```
 
-Or you can conditionally add a class:
-
-```js
 const ButtonRed = claxed(Button)`
   ${({ border }) => border && 'border'}
   text-red-500
