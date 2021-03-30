@@ -101,8 +101,8 @@ Contributions are what make the open source community such an amazing place form
 ## FAQ
 
 <details>
-  <summary>Why sometimes it doesn't work if I override a class?</summary>
-  <p>This happens because is not important where you declared a class, but is the ordering in declaration of the lib that gives it the priority</p>
+  <summary>Is the order in which I type classes with claxed relevant for their CSS specificity?</summary>
+  <p>No. Claxed is only responsible to combine CSS classes and put the result in the html `class` attribute of the component. If you have any specificity problem you should look at how classes are defined in the CSS file</p>
 </details>
 
 <!-- LICENSE -->
