@@ -23,3 +23,33 @@ export const is = {
     return this.isOfType('undefined', value) && this.null_;
   },
 };
+
+function removeSpacesNewline(string) {
+  return string.replace(/\n|\s{2,}/g, ' ');
+}
+
+function stripFalsyValues(string) {
+  return string.replace(/undefined|false|null|NaN/g, '');
+}
+
+export function cleanClassOutput(string) {
+  return stripFalsyValues(removeSpacesNewline(string));
+}
+
+export function extractClasses(strings, keys, props) {
+  return strings.reduce((acc, el, i) => {
+    const expression = keys[i];
+
+    switch (typeof expression) {
+      case 'string':
+        return `${acc}${el}${expression}`;
+
+      case 'function':
+        const variantClasses = expression(props);
+        return `${acc}${el}${variantClasses}`;
+
+      default:
+        return `${acc}${el}`.replace(/\s+/g, ' ');
+    }
+  }, '');
+}

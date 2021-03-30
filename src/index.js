@@ -1,36 +1,17 @@
 import { createElement, cloneElement } from 'react';
-import { is } from './utils';
+import { is, cleanClassOutput, extractClasses } from './utils';
 
 import tagList from './tagList';
-
-function extractClasses(strings, keys, props) {
-  return strings.reduce((acc, el, i) => {
-    const expression = keys[i];
-
-    switch (typeof expression) {
-      case 'string':
-        return `${acc}${el}${expression}`;
-
-      case 'function':
-        const variantClasses = expression(props);
-        return `${acc}${el}${variantClasses}`;
-
-      default:
-        return `${acc}${el}`;
-    }
-  }, '');
-}
 
 function factory(tag) {
   return function parseTemplateString(strings, ...keys) {
     const ClaxedComponent = ({ children, className, ...props }) => {
       const extractedClasses = extractClasses(strings, keys, props);
-      const mergedClasses = `${className ?? ''} ${extractedClasses}`.replace(
-        /\s+/g,
-        ' '
+      const mergedClasses = cleanClassOutput(
+        `${className} ${extractedClasses}`
       );
 
-      if (is.nullOrUndefined(tag)) return;
+      if (is.nullOrUndefined(tag)) return null;
 
       if (is.string(tag)) {
         return createElement(
@@ -47,19 +28,20 @@ function factory(tag) {
         } catch {
           returnedComponent = new tag({ ...props }).render();
         }
-        const { className, ...restProps } = returnedComponent?.props;
 
+        // TODO: better naming for className
+        const { className, ...restProps } = returnedComponent?.props;
         return cloneElement(
           returnedComponent,
           {
-            ...restProps,
-            className: `${extractedClasses} ${className}`,
+            ...props,
+            className: `${mergedClasses} ${className}`,
           },
           restProps.children || children
         );
       }
 
-      return undefined;
+      return null;
     };
 
     /*
@@ -67,7 +49,7 @@ function factory(tag) {
         for giving a dynamic name based on the `tag` 
       */
     Object.defineProperty(ClaxedComponent, 'name', {
-      value: typeof tag === 'string' ? tag : tag.displayName,
+      value: is.string(tag) ? tag : tag.displayName,
       writable: false,
     });
 

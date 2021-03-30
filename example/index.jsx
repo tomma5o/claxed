@@ -24,7 +24,11 @@ const Paragraph = claxed(Paragrapho)`
 
 class Title extends React.Component {
   render() {
-    return <h1 {...this.props}>{this.props.label}</h1>;
+    return (
+      <h1 color="2" acceptCharset="utf-8" className="testClass">
+        {this.props.message}
+      </h1>
+    );
   }
 }
 
@@ -41,9 +45,15 @@ const ReStyledTitle = claxed(StyledTitle)`
 const App = () => {
   return (
     <div>
-      <ReStyledTitle label="Super Titolo" />
+      <ReStyledTitle data-testid="button" hidden message="Super Titolo" />
 
-      <Paragraph className="MiaClasse" color="red" weight="thin" fontSize="xl">
+      <Paragraph
+        data-testid="ciccio"
+        className="MiaClasse"
+        color="red"
+        weight="thin"
+        fontSize="xl"
+      >
         Paragrafo Blu
       </Paragraph>
 
