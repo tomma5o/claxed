@@ -7,8 +7,8 @@
   "jsnext:main": "dist/claxed.esm.js",
   "module": "dist/claxed.esm.js",
   "browser": {
-    "./dist/claxed.esm.js": "./dist/claxed.browser.esm.js",
-    "./dist/claxed.cjs.js": "./dist/claxed.browser.cjs.js"
+    "./dist/claxed.esm.js": "./dist/claxed.esm.js",
+    "./dist/claxed.cjs.js": "./dist/claxed.cjs.js"
   },
   "files": [
     "dist"
