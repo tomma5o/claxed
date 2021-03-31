@@ -1,7 +1,7 @@
 {
   "name": "claxed",
   "author": "Tommaso Poletti",
-  "version": "0.1.1",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/claxed.cjs.js",
   "jsnext:main": "dist/claxed.esm.js",
@@ -55,6 +55,10 @@
     "rollup": "^2.42.2",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "size-limit": "^4.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomma5o/claxed.git"
   },
   "dependencies": {},
   "keywords": [
