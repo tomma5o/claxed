@@ -1,7 +1,7 @@
 {
   "name": "claxed",
   "author": "Tommaso Poletti",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "dist/claxed.cjs.js",
   "jsnext:main": "dist/claxed.esm.js",
