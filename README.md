@@ -8,9 +8,9 @@
 -->
 <div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
+[![npm][npm-shield]][npm-url]
+[![Workflow][workflow-shield]][workflow-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
@@ -122,14 +122,16 @@ Project Link: [https://github.com/tomma5o/claxed](https://github.com/tomma5o/cla
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/tomma5o/claxed.svg?style=for-the-badge
-[contributors-url]: https://github.com/tomma5o/claxed/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tomma5o/claxed.svg?style=for-the-badge
-[forks-url]: https://github.com/tomma5o/claxed/network/members
-[stars-shield]: https://img.shields.io/github/stars/tomma5o/claxed.svg?style=for-the-badge
+[npm-shield]: https://img.shields.io/npm/v/claxed?color=%23ff0000&logo=npm
+[stars-shield]: https://img.shields.io/github/stars/tomma5o/claxed?style=social
+[issues-shield]: https://img.shields.io/github/issues-raw/tomma5o/claxed
+[license-shield]: https://img.shields.io/npm/l/claxed
+[workflow-shield]: https://img.shields.io/github/workflow/status/tomma5o/claxed/CI
+
+<!--URLs-->
+
+[npm-url]: https://npmjs.com/package/claxed
 [stars-url]: https://github.com/tomma5o/claxed/stargazers
-[issues-shield]: https://img.shields.io/github/issues/tomma5o/claxed.svg?style=for-the-badge
 [issues-url]: https://github.com/tomma5o/claxed/issues
-[license-shield]: https://img.shields.io/github/license/tomma5o/claxed.svg?style=for-the-badge
 [license-url]: https://github.com/tomma5o/claxed/blob/master/LICENSE.txt
-[product-screenshot]: images/screenshot.png
+[workflow-url]: https://github.com/tomma5o/claxed/actions/workflows/main.yml
