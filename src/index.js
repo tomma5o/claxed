@@ -30,7 +30,7 @@ function factory(tag) {
         }
 
         // TODO: better naming for className
-        const { className, ...restProps } = returnedComponent?.props;
+        const { className, ...restProps } = returnedComponent.props;
         return cloneElement(
           returnedComponent,
           {
