@@ -6,6 +6,7 @@
   "main": "dist/claxed.cjs.js",
   "jsnext:main": "dist/claxed.esm.js",
   "module": "dist/claxed.esm.js",
+  "types": "dist/index.d.ts",
   "browser": {
     "./dist/claxed.esm.js": "./dist/claxed.esm.js",
     "./dist/claxed.cjs.js": "./dist/claxed.cjs.js"
@@ -14,7 +15,10 @@
     "dist"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "scripts": {
     "start": "rollup -cw",
@@ -41,26 +45,31 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.13.13",
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@size-limit/preset-small-lib": "^4.9.2",
-    "@testing-library/react": "^11.2.5",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "rollup": "^2.42.2",
-    "rollup-plugin-node-polyfills": "^0.2.1",
-    "size-limit": "^4.9.2"
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
+    "@babel/preset-typescript": "^8.0.1",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@size-limit/preset-small-lib": "^13.0.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "rollup": "^4.62.4",
+    "size-limit": "^13.0.3",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomma5o/claxed.git"
   },
-  "dependencies": {},
   "keywords": [
     "react",
     "css",

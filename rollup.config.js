@@ -1,8 +1,7 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: ['react'],
   output: [
     {
@@ -16,5 +15,5 @@ export default {
       exports: 'auto',
     },
   ],
-  plugins: [commonjs(), nodeResolve()],
+  plugins: [typescript({ tsconfig: 'tsconfig.build.json' })],
 };

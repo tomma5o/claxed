@@ -108,6 +108,8 @@ const tags = [
   'var',
   'video',
   'wbr',
-];
+] as const;
+
+export type ClaxedTag = (typeof tags)[number];
 
 export default tags;
