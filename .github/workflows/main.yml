@@ -1,23 +1,24 @@
 name: CI
-on: [push]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
 jobs:
   build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ['18.x', '20.x', '22.x']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+    name: Build, lint, and test
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node ${{ matrix.node }}
+      - name: Use Node 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22.x
+          cache: npm
 
       - name: Install deps
         run: npm ci
