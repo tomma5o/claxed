@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import claxed from '../src';
 
-test('Simple Claxed Component: Class Cheks', () => {
+test('Simple Claxed Component: Class Checks', () => {
   const ClaxedButton = claxed.button`mb-2`;
   const { getByTestId } = render(<ClaxedButton data-testid="button" />);
 
@@ -10,7 +10,7 @@ test('Simple Claxed Component: Class Cheks', () => {
   expect(Button.classList.contains('mb-2')).toBe(true);
 });
 
-test('Simple Claxed Component: Class Merge Cheks', () => {
+test('Simple Claxed Component: Class Merge Checks', () => {
   const ClaxedButton = claxed.button`mb-2`;
   const { getByTestId } = render(
     <ClaxedButton className="border" data-testid="button" />
@@ -23,7 +23,7 @@ test('Simple Claxed Component: Class Merge Cheks', () => {
   ).toBe(true);
 });
 
-test('Decorated Claxed Component: Class Cheks', () => {
+test('Decorated Claxed Component: Class Checks', () => {
   const ClaxedButton = claxed.button`mb-2`;
   const DecoratedButton = claxed(ClaxedButton)`mt-5`;
   const { getByTestId } = render(<DecoratedButton data-testid="button" />);
