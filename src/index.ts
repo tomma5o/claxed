@@ -8,7 +8,12 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react';
-import { is, cleanClassOutput, extractClasses, type TemplateKey } from './utils';
+import {
+  is,
+  cleanClassOutput,
+  extractClasses,
+  type TemplateKey,
+} from './utils';
 
 import tagList, { type ClaxedTag } from './tagList';
 
@@ -58,13 +63,14 @@ function factory(tag: ClaxedTarget): TemplateTag {
         const componentTag = tag as ComponentType<ClaxedProps>;
         let returnedComponent: ReactElement;
         try {
-          returnedComponent = (
-            componentTag as FunctionComponent<ClaxedProps>
-          )({ ...props }) as ReactElement;
+          returnedComponent = (componentTag as FunctionComponent<ClaxedProps>)({
+            ...props,
+          }) as ReactElement;
         } catch {
-          returnedComponent = new (
-            componentTag as unknown as ComponentClass<ClaxedProps>
-          )({ ...props }).render() as ReactElement;
+          returnedComponent =
+            new (componentTag as unknown as ComponentClass<ClaxedProps>)({
+              ...props,
+            }).render() as ReactElement;
         }
 
         if (!isValidElement(returnedComponent)) return null;

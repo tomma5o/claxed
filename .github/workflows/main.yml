@@ -23,11 +23,17 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
       - name: Typecheck
-        run: npx tsc -p tsconfig.json
+        run: npm run typecheck
 
       - name: Test
-        run: npm test -- --ci --coverage --maxWorkers=2
+        run: npm test -- --coverage
 
       - name: Build
         run: npm run build
