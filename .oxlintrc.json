@@ -1,0 +1,9 @@
+{
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "no-console": "warn"
+  },
+  "ignorePatterns": ["dist", "node_modules", "example"]
+}
