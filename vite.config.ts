@@ -21,10 +21,7 @@ export default defineConfig({
     }),
   ],
   test: {
-    include: [
-      '__tests__/**/*.{test,spec}.{ts,tsx,js,jsx}',
-      '__tests__/**/*.tsx',
-    ],
+    include: ['__tests__/**/*.[jt]s?(x)'],
     environment: 'jsdom',
     globals: true,
   },
