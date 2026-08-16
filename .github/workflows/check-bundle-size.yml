@@ -9,6 +9,7 @@ jobs:
       pull-requests: write
     env:
       CI_JOB_NUMBER: 1
+      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - uses: actions/checkout@v4
 
